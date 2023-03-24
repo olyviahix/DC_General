@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <script>
+            let taskid = 0
+            function addTask(){
+        
+                const newTask= document.getElementById("Pending Tasks").value 
+                const pendingTasks= document.getElementById("pendingSection")
+                const newTaskp = document.createElement("p")
+                newTaskp.id="p" + taskid
+                newTaskp.innerText = newTask
+                const checkBox = document.createElement("input")
+                checkBox.id="checkBox" + taskid
+                checkBox.type="checkbox"
+                const removeButton= document.createElement("button")
+                removeButton.id= taskid
+                removeButton.innerText="Delete"
+                pendingTasks.append(checkBox)
+                pendingTasks.append(newTaskp)
+                pendingTasks.append(removeButton)
+                removeButton.addEventListener("click", event =>{
+                    let id = event.target.id
+                    document.getElementById(id).remove() 
+                    document.getElementById('checkBox' + id).remove()
+                    document.getElementById("p" + id).remove()
+                })
+                taskid ++
+            }
+        </script>
+        <title>To Do List</title>
+    <link rel="stylesheet" href="style.css" />
+    </head>
+<body>
+         <div class="create to-do"> 
+                <h1>CREATE A TO DO</h1>
+
+    <div class="enter tasks">
+        Enter Task: <input type="text" id="Pending Tasks">
+        <button onclick="addTask()">Add</button>
+    </div>
+
+            <div>
+                <h2>Pending Tasks</h2>
+                <div class="pending-tasks" id="pendingSection">
+                <div>
+
+                </div>
+                </div> 
+
+                <h2>Completed Tasks</h2>
+                <div class="completed-tasks" id="completedSection">
+                    
+                </div>
+            </div>
+               
+    
+        
+
+        <!-- <script src="toDoListHomework.js"></script> -->
+    </body>
+</html>
+            

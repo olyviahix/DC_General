@@ -1,0 +1,15 @@
+.container {
+    background-color: aqua;
+    width: 600px;
+    height: 600px;
+}
+
+
+.test-class {
+    background-color: green;
+    color: white;
+}
+
+body {
+    background-color: red;
+}

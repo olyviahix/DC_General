@@ -1,0 +1,8 @@
+.nav {
+    height:100%;
+    width:10%;
+    position: fixed;
+    background-color: bisque;
+    flex-direction: column;
+    display: flex;
+}

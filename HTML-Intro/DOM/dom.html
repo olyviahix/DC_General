@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <script>
+            function addMore(){
+                const pDiv = document.getElementById('parentDiv');
+                const newChild = document.createElement('div')
+                newChild.innerText = 'Grapes';
+                pDiv.append(newChild)
+            }
+        </script>
+    </head>
+    <body>
+        <div id="parentDiv">
+            <div>Apple</div>
+            <div>Orange</div>
+        </div>
+        <button onclick="addMore()">Add more</button>
+    </body>
+</html>
+
+<!-- NEW CODE -->
+
+<html>
+    <head>
+        <style>
+            .calc{
+                display:flex;
+                flex-wrap: wrap;
+                max-width: 400px;
+            }
+            button{
+                flex-basis:25%;
+                font-size: 25px;
+                padding: 10px;
+                background-color: gray;
+                justify-content: flex-end;
+            }
+        </style>
+        <script>
+            let inputText = '';
+            let number1 = 0;
+            let number2 = 0;
+            let operator= '';
+            let answer = 0;
+            let displayText = '';            
+            function calculator(){
+
+                document.addEventListener('click',event=>{
+                    let buttonClickedText = event.target.innerText;
+                    if(buttonClickedText == 'C'){
+                        resetCalculator();
+                        return;                  
+                    }
+                    displayText+=buttonClickedText;
+                    document.getElementById('inputValues').innerText=displayText;
+                    if(buttonClickedText == '+' || buttonClickedText=='-' || buttonClickedText=='/' || buttonClickedText=='x'){
+                        number1=parseInt(inputText);
+                        inputText='';
+                        operator = buttonClickedText;
+                    }else if(buttonClickedText == '='){
+                        number2 = parseInt(inputText);
+                        if(operator == '+'){
+                            answer = number1+number2;
+                        }else if(operator == '-'){
+                            answer = number1-number2;
+                        }else if(operator == 'x'){
+                            answer = number1*number2;
+                        }else if(operator == '/'){
+                            answer = number1/number2;
+                        }
+                        alert(answer);
+                        resetCalculator();
+                    }
+                    else{
+                        //2
+                        //25
+                        //253
+                        inputText+=buttonClickedText;
+                    }
+                })
+            }
+
+            function resetCalculator(){
+                inputText = '';
+                number1 = 0;
+                number2 = 0;
+                operator= '';
+                answer = 0;
+                displayText = '';  
+                document.getElementById('inputValues').innerText=''                 
+            }
+
+            calculator();
+        </script>
+    </head>
+    <body>
+
+        <div class="calc">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>x</button>
+            <button>C</button>
+            <button>0</button>
+            <button>=</button>
+            <button>/</button>
+        </div>
+        <div id="inputValues"></div>
+    </body>
+</html>

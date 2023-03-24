@@ -1,0 +1,10 @@
+.create-todo input[type="text"]{
+    display: block;
+    width: 100%;
+    font-size: 1.125rem;
+    padding: 1rem 1.5rem;
+    color: var(dark);
+    background-color:aqua;
+    border-radius: 0.5rem;
+    
+}
